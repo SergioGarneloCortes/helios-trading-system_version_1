@@ -1,0 +1,12 @@
+import pandas as pd
+
+class PortfolioManager:
+    def __init__(self, initial_capital):
+        self.capital = initial_capital
+        self.portfolio = pd.DataFrame()
+
+    def add_stock(self, stock, amount):
+        self.portfolio[stock] = amount
+
+    def total_value(self):
+        return self.portfolio.sum().sum()

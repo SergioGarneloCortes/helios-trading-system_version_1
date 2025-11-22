@@ -1,0 +1,31 @@
+from strategy_system.backtesting_engine import BacktestingEngine
+from strategy_system.trade_simulator import TradeSimulator
+from strategy_system.portfolio_manager import PortfolioManager
+
+class StrategyManager:
+    def __init__(self, initial_capital):
+        self.backtest_engine = BacktestingEngine(data='path/to/your/data.csv')
+        self.trade_simulator = TradeSimulator(initial_capital=initial_capital)
+        self.portfolio_manager = PortfolioManager(initial_capital=initial_capital)
+
+    def run_strategy(self):
+        # Implement strategy logic here
+        pass
+
+    def evaluate(self):
+        # Evaluate strategy performance
+        return "Strategy evaluation"
+
+    def simulate_trade(self, stock_price):
+        # Simulate trade based on stock price
+        return self.trade_simulator.simulate_trade(stock_price)
+
+    def manage_portfolio(self):
+        # Manage portfolio
+        return self.portfolio_manager.manage_portfolio()
+
+    def add_stock(self, stock, amount):
+        self.portfolio_manager.add_stock(stock, amount)
+
+    def total_portfolio_value(self):
+        return self.portfolio_manager.total_value()
