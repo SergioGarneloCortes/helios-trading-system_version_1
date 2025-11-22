@@ -1,0 +1,22 @@
+import numpy as np
+
+class DataNormalizer:
+    def __init__(self):
+        self.min_value = None
+        self.max_value = None
+
+    def fit(self, data):
+        """Calcula el mínimo y el máximo de los datos para normalización."""
+        self.min_value = np.min(data)
+        self.max_value = np.max(data)
+
+    def transform(self, data):
+        """Normaliza los datos utilizando la escala calculada."""
+        if self.min_value is None or self.max_value is None:
+            raise ValueError("Debe llamar a fit antes de transform.")
+        return (data - self.min_value) / (self.max_value - self.min_value)
+
+    def fit_transform(self, data):
+        """Calcula la escala y normaliza los datos en una sola operación."""
+        self.fit(data)
+        return self.transform(data)
