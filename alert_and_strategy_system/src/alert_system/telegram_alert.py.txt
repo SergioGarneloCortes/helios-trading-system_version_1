@@ -1,0 +1,13 @@
+import os
+from dotenv import load_dotenv
+from telebot import TeleBot
+
+load_dotenv()
+
+class TelegramAlert:
+    def __init__(self):
+        self.token = os.getenv('TELEGRAM_TOKEN')
+        self.bot = TeleBot(self.token)
+
+    def send_message(self, chat_id, message):
+        self.bot.send_message(chat_id=chat_id, text=message)
