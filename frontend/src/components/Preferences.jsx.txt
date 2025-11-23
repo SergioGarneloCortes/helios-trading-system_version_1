@@ -1,0 +1,37 @@
+export default function Preferences({ onChange }) {
+  return (
+    <div className="bg-white rounded p-4 shadow">
+      <h3 className="font-semibold mb-2">Preferences</h3>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Sectors
+        </label>
+        <input
+          type="text"
+          className="mt-1 p-2 border rounded"
+          onChange={(e) => onChange({ ...onChange, sectors: e.target.value })}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Geography
+        </label>
+        <input
+          type="text"
+          className="mt-1 p-2 border rounded"
+          onChange={(e) => onChange({ ...onChange, geography: e.target.value })}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Asset Types
+        </label>
+        <input
+          type="text"
+          className="mt-1 p-2 border rounded"
+          onChange={(e) => onChange({ ...onChange, assetTypes: e.target.value })}
+        />
+      </div>
+    </div>
+  );
+}

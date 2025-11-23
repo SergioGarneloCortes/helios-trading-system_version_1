@@ -1,0 +1,20 @@
+export default function AlertPanel() {
+  const alerts = [
+    { time: '10:23', msg: 'RSI < 30 on AAPL -- possible buy' },
+    { time: '09:45', msg: 'MACD cross on TSLA -- watchlist' },
+  ];
+
+  return (
+    <div className="bg-white rounded p-4 shadow h-full">
+      <h3 className="font-semibold mb-2">Telegram Alerts</h3>
+      <ul className="space-y-2 text-sm">
+        {alerts.map((a, i) => (
+          <li key={i} className="flex justify-between">
+            <span>{a.msg}</span>
+            <span className="text-gray-500">{a.time}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

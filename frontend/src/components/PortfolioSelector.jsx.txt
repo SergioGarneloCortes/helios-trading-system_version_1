@@ -1,0 +1,15 @@
+export default function PortfolioSelector({ onChange }) {
+  return (
+    <div className="bg-white rounded p-4 shadow">
+      <h3 className="font-semibold mb-2">Portfolio Selector</h3>
+      <select
+        className="w-full border rounded px-3 py-2"
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="portfolio1">Portfolio 1</option>
+        <option value="portfolio2">Portfolio 2</option>
+        <option value="portfolio3">Portfolio 3</option>
+      </select>
+    </div>
+  );
+}

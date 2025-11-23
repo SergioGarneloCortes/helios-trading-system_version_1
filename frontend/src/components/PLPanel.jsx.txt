@@ -1,0 +1,21 @@
+import { useEffect, useState } from 'react';
+
+export default function PLPanel({ capital }) {
+  const [pl, setPl] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setPl((p) => p + (Math.random() - 0.5) * 100), 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  const pct = ((pl / capital) * 100).toFixed(2);
+
+  return (
+    <div className="bg-white rounded p-4 shadow">
+      <h3 className="font-semibold mb-2">Real-Time P&L</h3>
+      <div className={`text-2xl ${pl >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+        {pl.toFixed(2)} <span className="text-sm">({pct}%)</span>
+      </div>
+    </div>
+  );
+}

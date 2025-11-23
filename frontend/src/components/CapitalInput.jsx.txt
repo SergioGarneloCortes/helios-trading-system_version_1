@@ -1,0 +1,13 @@
+export default function CapitalInput({ value, onChange }) {
+  return (
+    <div className="bg-white rounded p-4 shadow">
+      <h3 className="font-semibold mb-2">Capital (MXN)</h3>
+      <input
+        type="number"
+        className="w-full border rounded px-3 py-2"
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+      />
+    </div>
+  );
+}
