@@ -1,0 +1,41 @@
+import { useState } from 'react';
+import PortfolioSelector from './components/PortfolioSelector';
+import RiskProfile from './components/RiskProfile';
+import Preferences from './components/Preferences';
+import CapitalInput from './components/CapitalInput';
+import MovementIndicator from './components/MovementIndicator';
+import PLPanel from './components/PLPanel';
+import AlertPanel from './components/AlertPanel';
+
+function App() {
+  const [portfolio, setPortfolio] = useState(null);
+  const [risk, setRisk] = useState('moderate');
+  const [horizon, setHorizon] = useState('medium');
+  const [prefs, setPrefs] = useState({});
+  const [capital, setCapital] = useState(50000);
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Left column -- controls */}
+      <div className="md:col-span-1 space-y-4">
+        <PortfolioSelector onChange={setPortfolio} />
+        <RiskProfile value={risk} onChange={setRisk} />
+        <Preferences onChange={setPrefs} />
+        <CapitalInput value={capital} onChange={setCapital} />
+      </div>
+
+      {/* Middle -- indicators */}
+      <div className="md:col-span-1 space-y-4">
+        <MovementIndicator />
+        <PLPanel capital={capital} />
+      </div>
+
+      {/* Right -- alerts */}
+      <div className="md:col-span-1">
+        <AlertPanel />
+      </div>
+    </div>
+  );
+}
+
+export default App;
